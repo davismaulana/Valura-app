@@ -83,7 +83,7 @@ const Pricing = () => {
             <div className="inline-block mb-4 px-5 py-2 rounded-full bg-gradient-to-r from-primary/15 via-accent/10 to-primary/15 border border-primary/30 backdrop-blur-sm">
               <span className="text-primary font-semibold text-sm tracking-wider uppercase">💳 Harga</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Paket Fleksibel untuk <span className="bg-gradient-to-r from-primary-light via-accent to-primary bg-clip-text text-transparent">Setiap Pelajar</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">

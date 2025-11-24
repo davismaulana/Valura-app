@@ -36,7 +36,7 @@ const Community = () => {
             <div className="inline-block mb-4 px-5 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm">
               <span className="text-primary font-semibold text-sm tracking-wider uppercase">💬 Community</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Tumbuh Bersama <span className="bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">Komunitas</span>
             </h2>
             <p className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
