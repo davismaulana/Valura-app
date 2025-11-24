@@ -1,29 +1,46 @@
-
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ProblemStatement from './components/ProblemStatement';
+import SolutionOverview from './components/SolutionOverview';
 import Features from './components/Features';
+import ContentPillars from './components/ContentPillars';
 import Curriculum from './components/Curriculum';
 import Pricing from './components/Pricing';
-import Testimonials from './components/Testimonials';
+import Community from './components/Community';
 import FAQ from './components/FAQ';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import Login from './components/Login';
+import Register from './components/Register';
+
+function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <ProblemStatement />
+      <SolutionOverview />
+      <Features />
+      <ContentPillars />
+      <Curriculum />
+      <Pricing />
+      <Community />
+      <FAQ />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark text-white font-sans selection:bg-primary selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <Curriculum />
-        <Pricing />
-        <Testimonials />
-        <FAQ />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-dark">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

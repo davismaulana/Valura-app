@@ -1,5 +1,5 @@
 
-
+import { Link } from 'react-router-dom';
 import { RevealOnScroll } from './RevealOnScroll';
 
 const plans = [
@@ -76,13 +76,18 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 bg-dark relative">
+    <section id="pricing" className="py-32 bg-gradient-to-b from-black via-dark to-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Flexible Plans for Every Learner</h2>
+            <div className="inline-block mb-4 px-5 py-2 rounded-full bg-gradient-to-r from-primary/15 via-accent/10 to-primary/15 border border-primary/30 backdrop-blur-sm">
+              <span className="text-primary font-semibold text-sm tracking-wider uppercase">💳 Harga</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Paket Fleksibel untuk <span className="bg-gradient-to-r from-primary-light via-accent to-primary bg-clip-text text-transparent">Setiap Pelajar</span>
+            </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Choose the plan that fits your goals. All plans include lifetime access, course materials, and community support.
+              Pilih paket yang sesuai dengan tujuan Anda. Semua paket termasuk akses seumur hidup, materi kursus, dan dukungan komunitas.
             </p>
           </div>
         </RevealOnScroll>
@@ -124,9 +129,9 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full py-3 rounded-lg font-semibold transition-all ${plan.popular ? 'bg-primary hover:bg-primary-hover text-white shadow-lg shadow-primary/25' : 'bg-dark-surface hover:bg-dark-border text-white border border-dark-border hover:border-primary/50'}`}>
+                <Link to="/register" className={`w-full py-4 rounded-xl font-bold transition-all duration-300 text-center block ${plan.popular ? 'bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white shadow-2xl shadow-primary/30 hover:shadow-primary/50' : 'bg-gradient-to-br from-dark-surface/80 to-dark-border/80 backdrop-blur-sm hover:bg-dark-border text-white border-2 border-dark-border hover:border-primary/60 hover:shadow-lg hover:shadow-primary/20'}`}>
                   {plan.cta}
-                </button>
+                </Link>
               </div>
             </RevealOnScroll>
           ))}

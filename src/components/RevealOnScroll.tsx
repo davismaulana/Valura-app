@@ -42,12 +42,16 @@ export const RevealOnScroll: React.FC<RevealOnScrollProps> = ({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
+      className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform ${
         isVisible 
-          ? "opacity-100 translate-y-0" 
-          : "opacity-0 translate-y-10"
+          ? "opacity-100 translate-y-0 scale-100 blur-0 rotate-0" 
+          : "opacity-0 translate-y-16 scale-95 blur-[2px] -rotate-1"
       } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ 
+        transitionDelay: `${delay}ms`,
+        transformStyle: 'preserve-3d',
+        perspective: '1000px'
+      }}
     >
       {children}
     </div>

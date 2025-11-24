@@ -1,93 +1,67 @@
-
 import { RevealOnScroll } from './RevealOnScroll';
 
 const features = [
   {
-    title: "Learn from Industry Experts",
-    description: "Our instructors are AI researchers and senior practitioners from leading tech companies with 10+ years of experience building real-world AI systems.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
-    )
+    title: "Platform Edukasi & Komunitas",
+    description: "Kombinasi pembelajaran AI terstruktur dengan ruang kolaborasi komunitas yang suportif.",
+    icon: "🤝"
   },
   {
-    title: "Get Recognized Certifications",
-    description: "Earn blockchain-verified certificates that are recognized by employers. Showcase your skills on LinkedIn and accelerate your career growth.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    )
+    title: "Inspiratif, Praktis, dan Aplikatif",
+    description: "Konten yang langsung bisa dipraktikkan untuk kebutuhan nyata, bukan sekadar teori.",
+    icon: "💡"
   },
   {
-    title: "Job Placement Support",
-    description: "Access our exclusive job board, resume reviews, and interview prep. Our members average 40% salary increase within 6 months.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    )
+    title: "Human-Centered Approach",
+    description: "Menempatkan AI sebagai partner yang memberdayakan, bukan pengganti manusia.",
+    icon: "❤️"
   },
   {
-    title: "Build Real AI Projects",
-    description: "Work on capstone projects from startups and enterprises. Build a portfolio that demonstrates your practical AI expertise to employers.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    )
-  },
-  {
-    title: "Premium Community Support",
-    description: "Get help from instructors and mentors in our exclusive Discord community. Access is available 24/7 with response times under 2 hours.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    )
-  },
-  {
-    title: "Stay Ahead of Trends",
-    description: "Access lifetime updates to course materials. New AI tools, frameworks, and techniques are added monthly based on industry changes.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-      </svg>
-    )
+    title: "Relevansi Multi-Segmen",
+    description: "Materi yang disesuaikan untuk Profesional, Entrepreneur, Mahasiswa, dan Pencari Peluang.",
+    icon: "🎯"
   }
 ];
 
 const Features = () => {
   return (
-    <section id="features" className="py-24 bg-dark relative overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <section id="features" className="py-32 bg-gradient-to-b from-black via-dark-surface to-black relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-[130px] animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-secondary/25 to-primary/15 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <RevealOnScroll>
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Why Valura Club?</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              We provide everything you need to transition into a high-paying AI career.
+            <div className="inline-block mb-4 px-5 py-2 rounded-full bg-gradient-to-r from-primary/15 via-accent/10 to-primary/15 border border-primary/30 backdrop-blur-sm">
+              <span className="text-primary font-semibold text-sm tracking-wider uppercase">✨ Keunggulan</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Mengapa Memilih <span className="bg-gradient-to-r from-primary-light via-accent to-primary bg-clip-text text-transparent">Valura Club?</span>
+            </h2>
+            <p className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
+              Kami menawarkan pendekatan berbeda dalam mempelajari AI yang fokus pada pemberdayaan dan hasil nyata.
             </p>
           </div>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
             <RevealOnScroll key={index} delay={index * 100}>
-              <div className="bg-dark-surface border border-dark-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 group h-full">
-                <div className="w-14 h-14 bg-dark rounded-xl border border-dark-border flex items-center justify-center mb-6 group-hover:bg-primary/10 group-hover:border-primary/30 transition-colors">
-                  <div className="text-primary group-hover:text-primary-light transition-colors">
+              <div className="bg-gradient-to-br from-dark-surface/90 via-dark/80 to-dark-surface/70 p-10 rounded-3xl border-2 border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 h-full group hover:shadow-[0_20px_60px_rgba(139,90,111,0.2)] relative overflow-hidden backdrop-blur-sm">
+                {/* Gradient Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary/25 to-accent/15 rounded-2xl flex items-center justify-center text-5xl mb-8 group-hover:scale-110 group-hover:from-primary/35 group-hover:to-accent/25 transition-all duration-500 shadow-lg shadow-primary/10">
                     {feature.icon}
                   </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 leading-tight">{feature.title}</h3>
+                  <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary-light transition-colors">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
             </RevealOnScroll>
           ))}

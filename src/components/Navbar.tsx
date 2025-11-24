@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -12,11 +13,13 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#hero" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-              <a href="#features" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
-              <a href="#curriculum" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Curriculum</a>
-              <a href="#pricing" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Pricing</a>
-              <a href="#pricing" className="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-primary/20">Get Started</a>
+              <a href="#hero" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-semibold transition-colors">Beranda</a>
+              <a href="#problems" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-semibold transition-colors">Tantangan</a>
+              <a href="#solutions" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-semibold transition-colors">Solusi</a>
+              <a href="#features" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-semibold transition-colors">Keunggulan</a>
+              <a href="#curriculum" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-semibold transition-colors">Kurikulum</a>
+              <a href="#community" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-semibold transition-colors">Komunitas</a>
+              <Link to="/register" className="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105">Gabung Sekarang</Link>
             </div>
           </div>
         </div>
