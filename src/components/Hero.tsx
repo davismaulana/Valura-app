@@ -25,7 +25,8 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-8 leading-tight">
             Valura Club <br />
             <span className="bg-gradient-to-r from-primary-light via-accent to-primary bg-clip-text text-transparent">
-              Memberdayakan Pertumbuhan dengan AI
+              Memberdayakan Pertumbuhan <br />
+              dengan AI
             </span>
           </h1>
         </RevealOnScroll>
