@@ -22,7 +22,7 @@ const Hero = () => {
         </RevealOnScroll>
 
         <RevealOnScroll delay={200}>
-          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight text-white mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-8 leading-tight">
             Valura Club <br />
             <span className="bg-gradient-to-r from-primary-light via-accent to-primary bg-clip-text text-transparent">
               Memberdayakan Pertumbuhan dengan AI
@@ -31,7 +31,7 @@ const Hero = () => {
         </RevealOnScroll>
         
         <RevealOnScroll delay={400}>
-          <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
             Valura Club membantu orang berkembang melalui AI menjadi lebih produktif, kreatif, dan inovatif.
             AI bukan ancaman, tetapi mitra yang dapat memudahkan tugas rutin dan meningkatkan efisiensi.
           </p>

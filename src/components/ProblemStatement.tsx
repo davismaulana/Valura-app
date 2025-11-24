@@ -68,12 +68,12 @@ const ProblemStatement = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {problems.map((item, index) => (
             <RevealOnScroll key={index} delay={index * 100}>
-              <div className="bg-gradient-to-br from-dark/90 via-dark-surface/80 to-dark/90 p-8 rounded-3xl border-2 border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 h-full group hover:shadow-[0_20px_60px_rgba(139,90,111,0.2)] relative overflow-hidden backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-dark/90 via-dark-surface/80 to-dark/90 p-8 rounded-3xl border-2 border-primary/20 hover:border-primary/60 transition-all duration-500 h-full group hover:shadow-[0_20px_60px_rgba(139,90,111,0.2)] relative overflow-hidden backdrop-blur-sm">
                 {/* Gradient Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                  <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">{item.icon}</div>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-6 leading-tight">{item.title}</h3>
                   <ul className="space-y-3">
                     {item.pains.map((pain, idx) => (
