@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useLocation, Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation, Outlet, useNavigate } from 'react-router-dom';
 import { 
   HomeIcon, 
   UsersIcon, 
@@ -15,6 +15,18 @@ import {
 const AdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // Mock Admin Access Control
+  useEffect(() => {
+    // In a real app, check for admin role/token here
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    if (!isAdmin) {
+      // For demo purposes, we'll just log it, but in production:
+      // navigate('/login');
+      console.log('Access Control: User is not admin (Mock check)');
+    }
+  }, [navigate]);
 
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: HomeIcon },
@@ -66,7 +78,9 @@ const AdminLayout = () => {
           {/* Navigation Links */}
           <nav className="flex-1 px-4 py-6 space-y-2">
             {navigation.map((item) => {
-              const isActive = location.pathname === item.href;
+              const isActive = item.href === '/admin'
+                ? location.pathname === '/admin'
+                : location.pathname.startsWith(item.href);
               return (
                 <Link
                   key={item.name}

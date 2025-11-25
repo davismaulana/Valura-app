@@ -130,19 +130,22 @@ const DashboardHome = () => {
             </div>
             <div className="space-y-3">
               {recentActivity.map((item) => (
-                <div key={item.id} className="bg-dark-surface p-4 rounded-xl border border-dark-border hover:border-primary/30 transition-colors flex items-center gap-4 group">
-                  <div className="p-2 rounded-full bg-white/5 text-gray-400 group-hover:text-white transition-colors">
+                <div key={item.id} className="bg-dark-surface p-4 rounded-xl border border-dark-border hover:border-primary/50 hover:bg-white/5 transition-all duration-300 flex items-center gap-4 group cursor-pointer">
+                  <div className={`p-3 rounded-full ${item.type === 'video' ? 'bg-blue-500/20 text-blue-400' : 'bg-purple-500/20 text-purple-400'} group-hover:scale-110 transition-transform`}>
                     {item.type === 'video' ? <PlayCircleIcon className="h-6 w-6" /> : <AcademicCapIcon className="h-6 w-6" />}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-medium group-hover:text-primary transition-colors">{item.title}</h3>
+                    <h3 className="text-white font-bold group-hover:text-primary transition-colors">{item.title}</h3>
                     <p className="text-sm text-gray-400">{item.courseTitle}</p>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs text-gray-500 block mb-1">{item.timestamp}</span>
+                    <span className="text-xs text-gray-500 block mb-1 font-medium">{item.timestamp}</span>
                     {item.progress && (
-                      <div className="w-20 h-1.5 bg-gray-700 rounded-full overflow-hidden ml-auto">
-                        <div className="h-full bg-green-500" style={{ width: `${item.progress}%` }}></div>
+                      <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden ml-auto">
+                        <div 
+                          className="h-full bg-gradient-to-r from-primary to-secondary" 
+                          style={{ width: `${item.progress}%` }}
+                        ></div>
                       </div>
                     )}
                   </div>
