@@ -155,7 +155,7 @@ const AnalyticsDashboard = () => {
                   paddingAngle={5}
                   dataKey="value"
                 >
-                  {engagementData.map((entry, index) => (
+                  {engagementData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
