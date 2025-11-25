@@ -20,6 +20,12 @@ import VideoPlayer from './components/dashboard/VideoPlayer';
 import QuizList from './components/dashboard/quiz/QuizList';
 import QuizInterface from './components/dashboard/quiz/QuizInterface';
 import QuizResults from './components/dashboard/quiz/QuizResults';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './components/admin/AdminDashboard';
+import UserManagement from './components/admin/users/UserManagement';
+import CourseManagement from './components/admin/courses/CourseManagement';
+import PaymentHistory from './components/admin/payments/PaymentHistory';
+import AdminSettings from './components/admin/settings/AdminSettings';
 
 function HomePage() {
   return (
@@ -56,6 +62,15 @@ function App() {
             <Route path="quizzes" element={<QuizList />} />
             <Route path="quizzes/:id" element={<QuizInterface />} />
             <Route path="quizzes/:id/results" element={<QuizResults />} />
+          </Route>
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="users" element={<UserManagement />} />
+            <Route path="courses" element={<CourseManagement />} />
+            <Route path="payments" element={<PaymentHistory />} />
+            <Route path="settings" element={<AdminSettings />} />
           </Route>
         </Routes>
       </div>

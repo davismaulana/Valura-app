@@ -1,9 +1,10 @@
-
-import { UserCircleIcon, EnvelopeIcon, PhoneIcon, MapPinIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
+import { UserCircleIcon, EnvelopeIcon, PhoneIcon, MapPinIcon, PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { RevealOnScroll } from '../RevealOnScroll';
 
 const Profile = () => {
-  const user = {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [user, setUser] = useState({
     name: 'John Doe',
     role: 'Premium Member',
     email: 'john.doe@example.com',
@@ -12,6 +13,19 @@ const Profile = () => {
     bio: 'Passionate learner and entrepreneur. Excited to be part of the Valura Club community and grow my skills.',
     joinDate: 'September 2023',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  });
+
+  const [editForm, setEditForm] = useState(user);
+
+  const handleEditClick = () => {
+    setEditForm(user);
+    setIsEditModalOpen(true);
+  };
+
+  const handleSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    setUser(editForm);
+    setIsEditModalOpen(false);
   };
 
   return (
@@ -35,7 +49,10 @@ const Profile = () => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <button className="absolute bottom-2 right-2 p-2 bg-dark-surface/90 backdrop-blur-sm rounded-xl text-white hover:text-primary border border-white/10 shadow-lg transition-all hover:scale-110 group-hover:opacity-100 opacity-0 group-hover:translate-y-0 translate-y-2">
+                <button 
+                  onClick={handleEditClick}
+                  className="absolute bottom-2 right-2 p-2 bg-dark-surface/90 backdrop-blur-sm rounded-xl text-white hover:text-primary border border-white/10 shadow-lg transition-all hover:scale-110 group-hover:opacity-100 opacity-0 group-hover:translate-y-0 translate-y-2"
+                >
                   <PencilSquareIcon className="h-5 w-5" />
                 </button>
               </div>
@@ -48,12 +65,12 @@ const Profile = () => {
 
               {/* Action Buttons */}
               <div className="flex gap-3 mt-6 md:mt-0">
-                <button className="px-6 py-3 bg-dark border border-dark-border hover:border-primary/50 text-white rounded-xl transition-all hover:shadow-lg hover:shadow-primary/10 flex items-center font-medium group">
+                <button 
+                  onClick={handleEditClick}
+                  className="px-6 py-3 bg-dark border border-dark-border hover:border-primary/50 text-white rounded-xl transition-all hover:shadow-lg hover:shadow-primary/10 flex items-center font-medium group"
+                >
                   <PencilSquareIcon className="h-5 w-5 mr-2 text-gray-400 group-hover:text-primary transition-colors" />
                   Edit Profile
-                </button>
-                <button className="px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-xl transition-all hover:shadow-lg hover:shadow-primary/20 font-medium">
-                  Share Profile
                 </button>
               </div>
             </div>
@@ -75,7 +92,7 @@ const Profile = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-400">Location</p>
-                  <p className="font-semibold text-white">New York</p>
+                  <p className="font-semibold text-white">{user.location}</p>
                 </div>
               </div>
               {/* Add more stats if needed */}
@@ -135,37 +152,104 @@ const Profile = () => {
                   </div>
                 </div>
 
-                {/* Setting Item 2 */}
-                <div className="group p-4 rounded-2xl bg-dark/30 border border-white/5 hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-white font-medium mb-1 group-hover:text-primary transition-colors">Public Profile</h4>
-                      <p className="text-sm text-gray-400">Visible to community members</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" className="sr-only peer" defaultChecked />
-                      <div className="w-12 h-7 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Setting Item 3 */}
-                <div className="group p-4 rounded-2xl bg-dark/30 border border-white/5 hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-white font-medium mb-1 group-hover:text-primary transition-colors">Two-Factor Auth</h4>
-                      <p className="text-sm text-gray-400">Secure your account</p>
-                    </div>
-                    <button className="px-4 py-2 bg-white/5 hover:bg-primary text-white text-sm font-medium rounded-lg transition-colors border border-white/10 hover:border-primary">
-                      Enable
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </div>
+
+
+      {/* Edit Profile Modal */}
+      {isEditModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-dark-surface w-full max-w-2xl rounded-3xl border border-dark-border shadow-2xl overflow-hidden animate-fadeIn">
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <h2 className="text-xl font-bold text-white">Edit Profile</h2>
+              <button 
+                onClick={() => setIsEditModalOpen(false)}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <XMarkIcon className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <form onSubmit={handleSave} className="p-6 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">Full Name</label>
+                  <input 
+                    type="text" 
+                    value={editForm.name}
+                    onChange={(e) => setEditForm({...editForm, name: e.target.value})}
+                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">Role</label>
+                  <input 
+                    type="text" 
+                    value={editForm.role}
+                    onChange={(e) => setEditForm({...editForm, role: e.target.value})}
+                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">Email</label>
+                  <input 
+                    type="email" 
+                    value={editForm.email}
+                    onChange={(e) => setEditForm({...editForm, email: e.target.value})}
+                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">Phone</label>
+                  <input 
+                    type="tel" 
+                    value={editForm.phone}
+                    onChange={(e) => setEditForm({...editForm, phone: e.target.value})}
+                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-sm font-medium text-gray-300">Location</label>
+                  <input 
+                    type="text" 
+                    value={editForm.location}
+                    onChange={(e) => setEditForm({...editForm, location: e.target.value})}
+                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-sm font-medium text-gray-300">Bio</label>
+                  <textarea 
+                    rows={4}
+                    value={editForm.bio}
+                    onChange={(e) => setEditForm({...editForm, bio: e.target.value})}
+                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
+                <button 
+                  type="button"
+                  onClick={() => setIsEditModalOpen(false)}
+                  className="px-6 py-2.5 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit"
+                  className="px-6 py-2.5 rounded-xl bg-primary text-white font-medium hover:bg-primary-hover transition-colors shadow-lg shadow-primary/20"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

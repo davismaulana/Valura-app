@@ -2,22 +2,26 @@ import { useState } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import { 
   HomeIcon, 
-
+  UsersIcon, 
   BookOpenIcon, 
-  AcademicCapIcon,
-  ArrowLeftOnRectangleIcon,
+  ChartBarIcon, 
+  Cog6ToothIcon,
   Bars3Icon,
-  XMarkIcon
+  XMarkIcon,
+  ArrowLeftOnRectangleIcon,
+  BellIcon
 } from '@heroicons/react/24/outline';
 
-const DashboardLayout = () => {
+const AdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
 
   const navigation = [
-    { name: 'Overview', href: '/dashboard', icon: HomeIcon },
-    { name: 'My Courses', href: '/dashboard/materials', icon: BookOpenIcon },
-    { name: 'Quizzes', href: '/dashboard/quizzes', icon: AcademicCapIcon },
+    { name: 'Dashboard', href: '/admin', icon: HomeIcon },
+    { name: 'Users', href: '/admin/users', icon: UsersIcon },
+    { name: 'Courses', href: '/admin/courses', icon: BookOpenIcon },
+    { name: 'Payment History', href: '/admin/payments', icon: ChartBarIcon },
+    { name: 'Settings', href: '/admin/settings', icon: Cog6ToothIcon },
   ];
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -43,9 +47,14 @@ const DashboardLayout = () => {
         <div className="h-full flex flex-col">
           {/* Logo Area */}
           <div className="h-16 flex items-center px-6 border-b border-dark-border">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Valura Club
-            </Link>
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <span className="font-bold text-white">V</span>
+              </div>
+              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Valura Admin
+              </span>
+            </div>
             <button 
               onClick={() => setIsSidebarOpen(false)}
               className="ml-auto lg:hidden text-gray-400 hover:text-white"
@@ -80,20 +89,17 @@ const DashboardLayout = () => {
             })}
           </nav>
 
-          {/* User Profile & Logout */}
+          {/* Admin Profile & Logout */}
           <div className="p-4 border-t border-dark-border">
-            <Link 
-              to="/dashboard/profile"
-              className="flex items-center p-3 rounded-lg bg-white/5 mb-3 hover:bg-white/10 transition-colors group"
-            >
+            <div className="flex items-center p-3 rounded-lg bg-white/5 mb-3 hover:bg-white/10 transition-colors group cursor-pointer">
               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold group-hover:shadow-lg group-hover:shadow-primary/20 transition-all">
-                JD
+                AD
               </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-white group-hover:text-primary transition-colors">John Doe</p>
-                <p className="text-xs text-gray-400">View Profile</p>
+              <div className="ml-3 min-w-0">
+                <p className="text-sm font-medium text-white group-hover:text-primary transition-colors truncate">Admin User</p>
+                <p className="text-xs text-gray-400 truncate">admin@valura.ai</p>
               </div>
-            </Link>
+            </div>
             <Link 
               to="/login"
               className="flex items-center px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
@@ -107,19 +113,32 @@ const DashboardLayout = () => {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        {/* Mobile Header */}
-        <header className="lg:hidden h-16 flex items-center px-4 border-b border-dark-border bg-dark-surface">
-          <button 
-            onClick={toggleSidebar}
-            className="text-gray-400 hover:text-white p-2 -ml-2"
-          >
-            <Bars3Icon className="h-6 w-6" />
-          </button>
-          <span className="ml-4 text-lg font-semibold text-white">Dashboard</span>
+        {/* Header */}
+        <header className="h-16 flex items-center justify-between px-4 lg:px-8 border-b border-dark-border bg-dark-surface">
+          <div className="flex items-center">
+            <button 
+              onClick={toggleSidebar}
+              className="lg:hidden text-gray-400 hover:text-white p-2 -ml-2 mr-4"
+            >
+              <Bars3Icon className="h-6 w-6" />
+            </button>
+            
+            {/* Global Search - Removed as per request */}
+            <div className="hidden md:flex relative max-w-md w-96">
+              {/* Search removed */}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button className="text-gray-400 hover:text-white relative">
+              <BellIcon className="h-6 w-6" />
+              <span className="absolute top-0 right-0 h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-dark-surface"></span>
+            </button>
+          </div>
         </header>
 
         {/* Content Area */}
-        <main className="flex-1 overflow-y-auto p-4 lg:p-8">
+        <main className="flex-1 overflow-y-auto p-4 lg:p-8 bg-dark">
           <div className="max-w-7xl mx-auto">
             <Outlet />
           </div>
@@ -129,4 +148,4 @@ const DashboardLayout = () => {
   );
 };
 
-export default DashboardLayout;
+export default AdminLayout;

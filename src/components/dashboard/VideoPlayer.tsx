@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
   ChevronLeftIcon, 
@@ -10,20 +10,24 @@ import {
   Cog6ToothIcon,
   BookmarkIcon,
   DocumentArrowDownIcon,
+  PaperAirplaneIcon,
 } from '@heroicons/react/24/solid';
+import ReactPlayer from 'react-player';
 import { RevealOnScroll } from '../RevealOnScroll';
 
 const VideoPlayer = () => {
+  const ReactPlayerAny = ReactPlayer as any;
   const { id } = useParams();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<any>(null);
   
   // State
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0); // Mock duration
+  const [duration, setDuration] = useState(0);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const [videoUrl] = useState('https://www.youtube.com/watch?v=StVqS0jD7Ls');
 
   const [showControls, setShowControls] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
@@ -42,35 +46,36 @@ const VideoPlayer = () => {
     ]
   };
 
-  const currentVideo = moduleData.videos.find(v => v.id === id) || moduleData.videos[4];
+  const currentVideo = moduleData.videos.find(v => v.id === id) || moduleData.videos[0];
 
   // Handlers
   const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) videoRef.current.pause();
-      else videoRef.current.play();
-      setIsPlaying(!isPlaying);
-    }
+    setIsPlaying(!isPlaying);
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
-    if (videoRef.current) videoRef.current.volume = newVolume;
     setIsMuted(newVolume === 0);
   };
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
+    setIsMuted(!isMuted);
   };
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const time = parseFloat(e.target.value);
     setCurrentTime(time);
-    if (videoRef.current) videoRef.current.currentTime = time;
+    videoRef.current?.seekTo(time);
+  };
+
+  const handleProgress = (state: any) => {
+    if (!showControls) return; // Optional: optimize updates
+    setCurrentTime(state.playedSeconds);
+  };
+
+  const handleDuration = (duration: number) => {
+    setDuration(duration);
   };
 
   const formatTime = (time: number) => {
@@ -79,10 +84,7 @@ const VideoPlayer = () => {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  // Simulate video loading
-  useEffect(() => {
-    setDuration(900); // 15 minutes mock duration
-  }, []);
+
 
   return (
     <div className="max-w-7xl mx-auto pb-10">
@@ -103,16 +105,22 @@ const VideoPlayer = () => {
               onMouseEnter={() => setShowControls(true)}
               onMouseLeave={() => setShowControls(false)}
             >
-              {/* Video Element (Mock source) */}
-              <video 
+              {/* Video Element */}
+              <ReactPlayerAny
                 ref={videoRef}
-                className="w-full h-full object-cover"
-                poster="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200&h=800"
-                onClick={togglePlay}
-              >
-                <source src="#" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                url={videoUrl}
+                width="100%"
+                height="100%"
+                playing={isPlaying}
+                volume={volume}
+                muted={isMuted}
+                playbackRate={playbackSpeed}
+                onProgress={handleProgress}
+                onDuration={handleDuration}
+                onEnded={() => setIsPlaying(false)}
+                style={{ position: 'absolute', top: 0, left: 0 }}
+                controls={false} // We are using custom controls
+              />
 
               {/* Play Button Overlay */}
               {!isPlaying && (
@@ -263,7 +271,87 @@ const VideoPlayer = () => {
                     </div>
                   </div>
                 )}
-                {/* Add other tabs content as needed */}
+                {activeTab === 'notes' && (
+                  <div className="animate-fadeIn space-y-4">
+                    <div className="bg-dark-surface p-6 rounded-xl border border-dark-border">
+                      <h3 className="text-lg font-semibold text-white mb-4">Instructor Notes</h3>
+                      <div className="prose prose-invert max-w-none">
+                        <p className="text-gray-400 leading-relaxed">
+                          Key takeaways from this lesson:
+                        </p>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2 mt-2">
+                          <li>AI vs ML vs DL hierarchy is crucial for understanding the landscape.</li>
+                          <li>The "AI Winter" periods were caused by overpromising and underdelivering.</li>
+                          <li>Modern AI boom is driven by: Big Data, Better Algorithms, and GPU Compute Power.</li>
+                        </ul>
+                        <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+                          <p className="text-primary-light text-sm font-medium">
+                            💡 Tip: Pay close attention to the section on Neural Networks, as it forms the basis for the next module.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {activeTab === 'discussion' && (
+                  <div className="animate-fadeIn flex flex-col h-[400px] bg-dark-surface rounded-xl border border-dark-border overflow-hidden">
+                    <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+                      {/* Mock Chat Messages */}
+                      <div className="flex items-start gap-3">
+                        <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold text-white">
+                          AS
+                        </div>
+                        <div>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-sm font-bold text-white">Alex Smith</span>
+                            <span className="text-xs text-gray-500">2 hours ago</span>
+                          </div>
+                          <p className="text-sm text-gray-300 mt-1">Can someone explain the difference between narrow AI and general AI again?</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center text-xs font-bold text-white">
+                          JD
+                        </div>
+                        <div>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-sm font-bold text-white">John Doe</span>
+                            <span className="text-xs text-gray-500">1 hour ago</span>
+                          </div>
+                          <p className="text-sm text-gray-300 mt-1">Narrow AI is designed for a specific task (like chess or facial recognition), while General AI would have human-like cognitive abilities across a wide range of tasks.</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center text-xs font-bold text-white">
+                          MK
+                        </div>
+                        <div>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-sm font-bold text-white">Maria Konova</span>
+                            <span className="text-xs text-gray-500">Just now</span>
+                          </div>
+                          <p className="text-sm text-gray-300 mt-1">Great explanation! Also, we are currently only at the Narrow AI stage.</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Chat Input */}
+                    <div className="p-4 border-t border-white/10 bg-dark/50">
+                      <div className="relative">
+                        <input 
+                          type="text" 
+                          placeholder="Join the discussion..." 
+                          className="w-full bg-dark-surface border border-white/10 rounded-xl pl-4 pr-12 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors"
+                        />
+                        <button className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-primary hover:text-white transition-colors">
+                          <PaperAirplaneIcon className="h-5 w-5" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </RevealOnScroll>
@@ -289,8 +377,9 @@ const VideoPlayer = () => {
               
               <div className="max-h-[600px] overflow-y-auto custom-scrollbar">
                 {moduleData.videos.map((video, index) => (
-                  <button
+                  <Link
                     key={video.id}
+                    to={`/dashboard/materials/${video.id}`}
                     className={`
                       w-full text-left p-4 flex items-start hover:bg-white/5 transition-all border-b border-white/5 last:border-0 group
                       ${video.id === currentVideo.id ? 'bg-primary/10 border-l-4 border-l-primary' : 'border-l-4 border-l-transparent'}
@@ -311,7 +400,7 @@ const VideoPlayer = () => {
                       </p>
                       <p className="text-xs text-gray-500 mt-1 group-hover:text-gray-400 transition-colors">{video.duration}</p>
                     </div>
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -87,7 +87,7 @@ const DashboardHome = () => {
             </div>
             
             {/* Next Lesson Card */}
-            <div className="hidden md:block bg-dark-surface/50 backdrop-blur-md p-4 rounded-2xl border border-white/10 w-80 hover:bg-dark-surface/80 transition-colors cursor-pointer group">
+            <Link to="/dashboard/materials/1" className="hidden md:block bg-dark-surface/50 backdrop-blur-md p-4 rounded-2xl border border-white/10 w-80 hover:bg-dark-surface/80 transition-colors cursor-pointer group">
               <p className="text-xs text-gray-400 uppercase font-semibold mb-2">Up Next</p>
               <div className="flex gap-3">
                 <img src={nextLesson.thumbnail} alt="Thumbnail" className="w-20 h-14 object-cover rounded-lg" />
@@ -96,7 +96,7 @@ const DashboardHome = () => {
                   <p className="text-xs text-gray-400 mt-1">{nextLesson.duration} • Video</p>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
         </div>
@@ -174,9 +174,9 @@ const DashboardHome = () => {
                 <p className="text-sm text-gray-400 mb-4 line-clamp-2">
                   Master object detection, segmentation, and facial recognition using state-of-the-art deep learning models.
                 </p>
-                <button className="self-start px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-colors border border-white/10">
+                <Link to="/dashboard/materials/recommended" className="self-start px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-colors border border-white/10">
                   View Course
-                </button>
+                </Link>
               </div>
             </div>
           </RevealOnScroll>
@@ -205,7 +205,10 @@ const DashboardHome = () => {
                   </div>
                 ))}
               </div>
-              <button className="w-full mt-4 py-2 text-xs font-medium text-gray-400 hover:text-white transition-colors border-t border-white/5">
+              <button 
+                onClick={() => alert('Calendar feature coming soon!')}
+                className="w-full mt-4 py-2 text-xs font-medium text-gray-400 hover:text-white transition-colors border-t border-white/5"
+              >
                 View Calendar
               </button>
             </div>
