@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { UserCircleIcon, EnvelopeIcon, PhoneIcon, MapPinIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
 import { RevealOnScroll } from '../RevealOnScroll';
 

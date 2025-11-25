@@ -10,7 +10,6 @@ import {
   Cog6ToothIcon,
   BookmarkIcon,
   DocumentArrowDownIcon,
-  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/solid';
 import { RevealOnScroll } from '../RevealOnScroll';
 
@@ -25,7 +24,7 @@ const VideoPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0); // Mock duration
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
-  const [quality, setQuality] = useState('1080p');
+
   const [showControls, setShowControls] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
 
