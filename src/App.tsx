@@ -12,6 +12,14 @@ import Community from './components/Community';
 import FAQ from './components/FAQ';
 import Login from './components/Login';
 import Register from './components/Register';
+import DashboardLayout from './components/dashboard/DashboardLayout';
+import DashboardHome from './components/dashboard/DashboardHome';
+import Profile from './components/dashboard/Profile';
+import Materials from './components/dashboard/Materials';
+import VideoPlayer from './components/dashboard/VideoPlayer';
+import QuizList from './components/dashboard/quiz/QuizList';
+import QuizInterface from './components/dashboard/quiz/QuizInterface';
+import QuizResults from './components/dashboard/quiz/QuizResults';
 
 function HomePage() {
   return (
@@ -38,6 +46,17 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          
+          {/* Dashboard Routes */}
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<DashboardHome />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="materials" element={<Materials />} />
+            <Route path="materials/:id" element={<VideoPlayer />} />
+            <Route path="quizzes" element={<QuizList />} />
+            <Route path="quizzes/:id" element={<QuizInterface />} />
+            <Route path="quizzes/:id/results" element={<QuizResults />} />
+          </Route>
         </Routes>
       </div>
     </Router>

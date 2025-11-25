@@ -27,7 +27,7 @@ const Register = () => {
 
       {/* Register Card */}
       <RevealOnScroll>
-        <div className="relative z-10 w-full max-w-xl mx-4">
+        <div className="relative z-10 w-full max-w-2xl mx-4">
           {/* Gradient Border Effect */}
           <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-3xl blur-lg opacity-50 group-hover:opacity-75 transition duration-1000"></div>
           
