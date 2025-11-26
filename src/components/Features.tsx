@@ -25,7 +25,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-32 bg-gradient-to-b from-black via-dark-surface to-black relative overflow-hidden">
+    <section id="features" className="py-20 sm:py-32 bg-gradient-to-b from-black via-dark-surface to-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-[130px] animate-pulse"></div>
         <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-secondary/25 to-primary/15 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>

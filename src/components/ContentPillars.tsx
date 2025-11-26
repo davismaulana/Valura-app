@@ -41,7 +41,7 @@ const ContentPillars = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {pillars.map((pillar, index) => (
             <RevealOnScroll key={index} delay={index * 100}>
-              <div className="group relative overflow-hidden rounded-2xl border border-dark-border hover:border-primary/50 transition-all h-64 md:h-80">
+              <div className="group relative overflow-hidden rounded-2xl border border-dark-border hover:border-primary/50 transition-all h-80 md:h-80">
                 <div className="absolute inset-0">
                   <img 
                     src={pillar.image} 

@@ -4,12 +4,12 @@ import { RevealOnScroll } from './RevealOnScroll';
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-black via-dark to-dark-surface">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 sm:pb-0 bg-gradient-to-br from-black via-dark to-dark-surface">
       {/* Enhanced Background Effects with Mesh Gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full z-0 pointer-events-none opacity-60">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/40 to-secondary/30 rounded-full blur-[140px] animate-pulse"></div>
-        <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-secondary/30 to-accent/20 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 rounded-full blur-[200px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-br from-primary/40 to-secondary/30 rounded-full blur-[100px] sm:blur-[140px] animate-pulse"></div>
+        <div className="absolute bottom-20 right-1/4 w-72 h-72 sm:w-[500px] sm:h-[500px] bg-gradient-to-tl from-secondary/30 to-accent/20 rounded-full blur-[120px] sm:blur-[160px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[600px] sm:h-[600px] bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 rounded-full blur-[150px] sm:blur-[200px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center py-20">
@@ -22,7 +22,7 @@ const Hero = () => {
         </RevealOnScroll>
 
         <RevealOnScroll delay={200}>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-8 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6 sm:mb-8 leading-tight">
             Valura Club <br />
             <span className="bg-gradient-to-r from-primary-light via-accent to-primary bg-clip-text text-transparent">
               Memberdayakan Pertumbuhan <br />
@@ -32,7 +32,7 @@ const Hero = () => {
         </RevealOnScroll>
         
         <RevealOnScroll delay={400}>
-          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0">
             Valura Club membantu orang berkembang melalui AI menjadi lebih produktif, kreatif, dan inovatif.
             AI bukan ancaman, tetapi mitra yang dapat memudahkan tugas rutin dan meningkatkan efisiensi.
           </p>

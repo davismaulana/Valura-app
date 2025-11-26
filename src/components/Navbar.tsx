@@ -54,8 +54,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" onClick={(e) => scrollToSection(e, 'hero')} className="flex items-center gap-3 text-xl font-bold text-white tracking-wider">
-              <img src="/valura_logo.png" alt="Valura Logo" className="h-10 w-10 rounded-full object-cover border-2 border-primary/50" />
+            <a href="#" onClick={(e) => scrollToSection(e, 'hero')} className="flex items-center gap-3 text-lg sm:text-xl font-bold text-white tracking-wider">
+              <img src="/valura_logo.png" alt="Valura Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover border-2 border-primary/50" />
               <span>VALURA <span className="text-primary">CLUB</span></span>
             </a>
           </div>

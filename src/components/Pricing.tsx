@@ -76,7 +76,7 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-32 bg-gradient-to-b from-black via-dark to-black relative overflow-hidden">
+    <section id="pricing" className="py-20 sm:py-32 bg-gradient-to-b from-black via-dark to-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <div className="text-center mb-16">
