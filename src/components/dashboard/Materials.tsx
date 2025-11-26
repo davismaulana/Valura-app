@@ -237,7 +237,7 @@ const CourseList = () => {
               </div>
 
               <Link 
-                to={`/dashboard/materials/${course.id}`}
+                to={`/lms/materials/${course.id}`}
                 className={`
                   block w-full py-3 rounded-xl font-medium text-center transition-all shadow-lg 
                   ${course.status === 'completed' 

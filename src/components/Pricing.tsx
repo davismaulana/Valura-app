@@ -114,26 +114,30 @@ const Pricing = () => {
                   </RevealOnScroll>
                 </div>
                 
-                <RevealOnScroll delay={300}>
-                  <ul className="space-y-4 mb-8 flex-1">
+                <div className="mb-8 flex-1">
+                  <ul className="space-y-4">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <svg className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </li>
+                      <RevealOnScroll key={`feature-${idx}`} delay={400 + (idx * 100)}>
+                        <li className="flex items-start">
+                          <svg className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-gray-300 text-sm">{feature}</span>
+                        </li>
+                      </RevealOnScroll>
                     ))}
                     {plan.notIncluded.map((feature, idx) => (
-                      <li key={idx} className="flex items-start opacity-50">
-                        <svg className="w-5 h-5 text-gray-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        <span className="text-gray-500 text-sm">{feature}</span>
-                      </li>
+                      <RevealOnScroll key={`not-included-${idx}`} delay={400 + (plan.features.length * 100) + (idx * 100)}>
+                        <li className="flex items-start opacity-50">
+                          <svg className="w-5 h-5 text-gray-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                          <span className="text-gray-500 text-sm">{feature}</span>
+                        </li>
+                      </RevealOnScroll>
                     ))}
                   </ul>
-                </RevealOnScroll>
+                </div>
 
                 <RevealOnScroll delay={400}>
                   <Link to="/register" className={`w-full py-4 rounded-xl font-bold transition-all duration-300 text-center block ${plan.popular ? 'bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white shadow-2xl shadow-primary/30 hover:shadow-primary/50' : 'bg-gradient-to-br from-dark-surface/80 to-dark-border/80 backdrop-blur-sm hover:bg-dark-border text-white border-2 border-dark-border hover:border-primary/60 hover:shadow-lg hover:shadow-primary/20'}`}>

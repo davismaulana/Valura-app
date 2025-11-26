@@ -119,7 +119,7 @@ const QuizList = () => {
               </div>
 
               <Link
-                to={`/dashboard/quizzes/${quiz.id}`}
+                to={`/lms/quizzes/${quiz.id}`}
                 className={`
                   block w-full py-3 rounded-xl font-medium text-center transition-all shadow-lg flex items-center justify-center
                   ${quiz.status === 'not-started' 

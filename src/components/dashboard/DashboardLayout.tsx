@@ -15,9 +15,9 @@ const DashboardLayout = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'Overview', href: '/dashboard', icon: HomeIcon },
-    { name: 'My Courses', href: '/dashboard/materials', icon: BookOpenIcon },
-    { name: 'Quizzes', href: '/dashboard/quizzes', icon: AcademicCapIcon },
+    { name: 'Overview', href: '/lms', icon: HomeIcon },
+    { name: 'My Courses', href: '/lms/materials', icon: BookOpenIcon },
+    { name: 'Quizzes', href: '/lms/quizzes', icon: AcademicCapIcon },
   ];
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -57,8 +57,8 @@ const DashboardLayout = () => {
           {/* Navigation Links */}
           <nav className="flex-1 px-4 py-6 space-y-2">
             {navigation.map((item) => {
-              const isActive = item.href === '/dashboard' 
-                ? location.pathname === '/dashboard'
+              const isActive = item.href === '/lms' 
+                ? location.pathname === '/lms'
                 : location.pathname.startsWith(item.href);
               return (
                 <Link
@@ -85,7 +85,7 @@ const DashboardLayout = () => {
           {/* User Profile & Logout */}
           <div className="p-4 border-t border-dark-border">
             <Link 
-              to="/dashboard/profile"
+              to="/lms/profile"
               className="flex items-center p-3 rounded-lg bg-white/5 mb-3 hover:bg-white/10 transition-colors group"
             >
               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold group-hover:shadow-lg group-hover:shadow-primary/20 transition-all">

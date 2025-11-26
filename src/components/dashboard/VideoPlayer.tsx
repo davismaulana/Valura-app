@@ -89,7 +89,7 @@ const VideoPlayer = () => {
   return (
     <div className="max-w-7xl mx-auto pb-10">
       <Link 
-        to="/dashboard/materials"
+        to="/lms/materials"
         className="inline-flex items-center text-gray-400 hover:text-white mb-6 transition-colors"
       >
         <ChevronLeftIcon className="h-5 w-5 mr-1" />
@@ -379,7 +379,7 @@ const VideoPlayer = () => {
                 {moduleData.videos.map((video, index) => (
                   <Link
                     key={video.id}
-                    to={`/dashboard/materials/${video.id}`}
+                    to={`/lms/materials/${video.id}`}
                     className={`
                       w-full text-left p-4 flex items-start hover:bg-white/5 transition-all border-b border-white/5 last:border-0 group
                       ${video.id === currentVideo.id ? 'bg-primary/10 border-l-4 border-l-primary' : 'border-l-4 border-l-transparent'}

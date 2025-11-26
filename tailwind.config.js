@@ -8,22 +8,22 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#8B5A6F', // Mauve/Dusty Rose
-          hover: '#6D4558',
-          light: '#A67B8F', // Light Mauve
+          DEFAULT: '#A32442', // Red/Pink
+          hover: '#8A1E37',
+          light: '#C43A5A', // Lighter Pink
         },
         secondary: {
-          DEFAULT: '#6D4558', // Deep Mauve
-          hover: '#5A3847',
+          DEFAULT: '#4A101E', // Dark Red/Brown
+          hover: '#380C16',
         },
         accent: {
-          DEFAULT: '#C4A4B0', // Soft Rose
-          hover: '#A67B8F',
+          DEFAULT: '#FF8FA3', // Bright Pink/White (kept for contrast)
+          hover: '#A32442',
         },
         dark: {
-          DEFAULT: '#0A0608', // Almost Black with slight warmth
-          surface: '#1A1215', // Dark with mauve tint
-          border: '#2D2228', // Dark border with warmth
+          DEFAULT: '#000000', // Black
+          surface: '#1A050A', // Dark with slight red tint
+          border: '#330A12', // Dark border with red tint
         }
       },
       fontFamily: {

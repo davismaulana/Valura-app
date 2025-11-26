@@ -54,7 +54,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           
           {/* Dashboard Routes */}
-          <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="/lms" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />
             <Route path="profile" element={<Profile />} />
             <Route path="materials" element={<Materials />} />

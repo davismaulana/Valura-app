@@ -77,7 +77,7 @@ const DashboardHome = () => {
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link 
-                  to="/dashboard/materials/1"
+                  to="/lms/materials/1"
                   className="inline-flex items-center px-6 py-3 rounded-full bg-primary hover:bg-primary-hover text-white font-medium transition-all hover:scale-105 shadow-lg shadow-primary/20"
                 >
                   <PlayCircleIcon className="h-5 w-5 mr-2" />
@@ -87,7 +87,7 @@ const DashboardHome = () => {
             </div>
             
             {/* Next Lesson Card */}
-            <Link to="/dashboard/materials/1" className="hidden md:block bg-dark-surface/50 backdrop-blur-md p-4 rounded-2xl border border-white/10 w-80 hover:bg-dark-surface/80 transition-colors cursor-pointer group">
+            <Link to="/lms/materials/1" className="hidden md:block bg-dark-surface/50 backdrop-blur-md p-4 rounded-2xl border border-white/10 w-80 hover:bg-dark-surface/80 transition-colors cursor-pointer group">
               <p className="text-xs text-gray-400 uppercase font-semibold mb-2">Up Next</p>
               <div className="flex gap-3">
                 <img src={nextLesson.thumbnail} alt="Thumbnail" className="w-20 h-14 object-cover rounded-lg" />
@@ -126,7 +126,7 @@ const DashboardHome = () => {
           <RevealOnScroll delay={200}>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-white">Recent Activity</h2>
-              <Link to="/dashboard/history" className="text-sm text-primary hover:text-primary-light">View All</Link>
+              <Link to="/lms/history" className="text-sm text-primary hover:text-primary-light">View All</Link>
             </div>
             <div className="space-y-3">
               {recentActivity.map((item) => (
@@ -177,7 +177,7 @@ const DashboardHome = () => {
                 <p className="text-sm text-gray-400 mb-4 line-clamp-2">
                   Master object detection, segmentation, and facial recognition using state-of-the-art deep learning models.
                 </p>
-                <Link to="/dashboard/materials/recommended" className="self-start px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-colors border border-white/10">
+                <Link to="/lms/materials/recommended" className="self-start px-5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-colors border border-white/10">
                   View Course
                 </Link>
               </div>

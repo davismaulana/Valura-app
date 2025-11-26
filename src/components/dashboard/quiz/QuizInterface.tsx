@@ -145,7 +145,7 @@ const QuizInterface = () => {
       });
       
       const percentage = Math.round((score / totalPoints) * 100);
-      navigate(`/dashboard/quizzes/${id}/results`, { 
+      navigate(`/lms/quizzes/${id}/results`, { 
         state: { score: percentage, answers, questions, quiz } 
       });
     }, 1500);

@@ -73,14 +73,20 @@ const ProblemStatement = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">{item.icon}</div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-6 leading-tight">{item.title}</h3>
+                  <RevealOnScroll delay={(index * 100) + 200}>
+                    <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">{item.icon}</div>
+                  </RevealOnScroll>
+                  <RevealOnScroll delay={(index * 100) + 300}>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-6 leading-tight">{item.title}</h3>
+                  </RevealOnScroll>
                   <ul className="space-y-3">
                     {item.pains.map((pain, idx) => (
-                      <li key={idx} className="flex items-start text-gray-300 text-sm md:text-base leading-relaxed">
-                        <span className="text-primary mr-3 mt-1 text-lg">•</span>
-                        <span>{pain}</span>
-                      </li>
+                      <RevealOnScroll key={idx} delay={(index * 100) + 400 + (idx * 100)}>
+                        <li className="flex items-start text-gray-300 text-sm md:text-base leading-relaxed">
+                          <span className="text-primary mr-3 mt-1 text-lg">•</span>
+                          <span>{pain}</span>
+                        </li>
+                      </RevealOnScroll>
                     ))}
                   </ul>
                 </div>
