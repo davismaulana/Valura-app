@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+
 import { RevealOnScroll } from './RevealOnScroll';
 
 const Hero = () => {
@@ -40,9 +40,9 @@ const Hero = () => {
 
         <RevealOnScroll delay={600}>
           <div className="flex flex-col sm:flex-row justify-center gap-6 items-center mb-16">
-            <Link to="/register" className="w-full sm:w-auto bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-500 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-105 border-2 border-primary/60">
+            <a href="http://discord.valura.club" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-500 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-105 border-2 border-primary/60">
               Gabung Valura Club
-            </Link>
+            </a>
             <a href="#curriculum" className="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-dark-surface/80 to-dark-border/80 backdrop-blur-sm border-2 border-dark-border hover:border-primary/60 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all hover:bg-dark-border group shadow-xl hover:shadow-primary/20">
               Jelajahi Jalur Pembelajaran AI
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
