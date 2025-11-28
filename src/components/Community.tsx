@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import { RevealOnScroll } from './RevealOnScroll';
 
 const testimonials = [
@@ -77,9 +77,9 @@ const Community = () => {
             <p className="text-gray-300 mb-10 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
               Dapatkan akses ke webinar mingguan, grup diskusi eksklusif, dan kesempatan networking.
             </p>
-            <Link to="/register" className="inline-block bg-white text-primary hover:bg-gray-100 px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-2xl hover:scale-105 hover:shadow-3xl border-2 border-white/20">
+            <a href="http://discord.valura.club" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-primary hover:bg-gray-100 px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-2xl hover:scale-105 hover:shadow-3xl border-2 border-white/20">
               Gabung Komunitas Gratis
-            </Link>
+            </a>
           </div>
         </RevealOnScroll>
       </div>
