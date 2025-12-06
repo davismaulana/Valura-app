@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+
 import { RevealOnScroll } from './RevealOnScroll';
 
 const plans = [
@@ -140,9 +140,9 @@ const Pricing = () => {
                 </div>
 
                 <RevealOnScroll delay={400}>
-                  <Link to="/register" className={`w-full py-4 rounded-xl font-bold transition-all duration-300 text-center block ${plan.popular ? 'bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white shadow-2xl shadow-primary/30 hover:shadow-primary/50' : 'bg-gradient-to-br from-dark-surface/80 to-dark-border/80 backdrop-blur-sm hover:bg-dark-border text-white border-2 border-dark-border hover:border-primary/60 hover:shadow-lg hover:shadow-primary/20'}`}>
+                  <a href="https://portal.valura.club/" target="_blank" rel="noopener noreferrer" className={`w-full py-4 rounded-xl font-bold transition-all duration-300 text-center block ${plan.popular ? 'bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white shadow-2xl shadow-primary/30 hover:shadow-primary/50' : 'bg-gradient-to-br from-dark-surface/80 to-dark-border/80 backdrop-blur-sm hover:bg-dark-border text-white border-2 border-dark-border hover:border-primary/60 hover:shadow-lg hover:shadow-primary/20'}`}>
                     {plan.cta}
-                  </Link>
+                  </a>
                 </RevealOnScroll>
               </div>
             </RevealOnScroll>

@@ -78,7 +78,7 @@ const Navbar = () => {
                   <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform transition-transform duration-300 ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
                 </a>
               ))}
-              <a href="http://discord.valura.club" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105">Gabung Sekarang</a>
+              <a href="https://portal.valura.club/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105">Gabung Sekarang</a>
             </div>
           </div>
 
@@ -122,7 +122,7 @@ const Navbar = () => {
               </a>
             ))}
             <a 
-              href="http://discord.valura.club" 
+              href="https://portal.valura.club/" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
